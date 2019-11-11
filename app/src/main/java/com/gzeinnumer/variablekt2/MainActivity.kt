@@ -326,3 +326,73 @@ val user_8 = User(mapOf(
     "name" to "Rohmen",
     "age"  to 22
 ))
+
+//type 14 lambda
+val message = { println("Happy to learn Kotlin!") }
+val message1 = { params: String -> println(params) }
+
+fun main_6(){
+    message
+    message1("I Love You")
+}
+//variable bisa lansung dipanggil
+
+//type 15
+fun main_7(){
+
+    val list: HashMap<Int, String>? = null
+    val index = 1
+    val element = "String"
+//jika mau memakai 2 param
+    list.mapIndexed { index, element ->
+        "Indeks $index bernilai $element"
+    }
+//jika cuma mau makai 1 param
+    list.mapIndexed { _, element ->
+        "Nilai: $element"
+    }
+}
+
+//type 16
+fun getNickName(fullname : String, nickName: String, yourName: (String, String) -> String){
+    val result = yourName(fullname, nickName)
+    println(result)
+}
+
+fun main_8(){
+    val name: (String, String) -> String = {
+        realName, heroName -> "My Name is $realName and my name is $heroName"
+    }
+
+    getNickName("M. Fadli Zein", "GZN", name)
+}
+
+//type 17
+fun main_9(){
+    val a =" Zein"
+    //cara lama
+    if (a != null && a.length > 0) {
+        print("String of length ${a.length}")
+    } else {
+        print("Empty string")
+    }
+    //cara baru
+    if (a?.length) {
+        print("String of length ${a.length}")
+    } else {
+        print("Empty string")
+    }
+
+    val user = "Zein"
+    val company: String?
+    //cara lama
+    if (user != null){
+        company = user.company
+    } else{
+        company = "Default name"
+    }
+    //cara baru
+    val name: String = user.company ?: "default name"
+
+
+}
