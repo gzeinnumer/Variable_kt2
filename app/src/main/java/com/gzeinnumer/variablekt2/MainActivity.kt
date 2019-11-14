@@ -394,5 +394,7 @@ fun main_9(){
     //cara baru
     val name: String = user.company ?: "default name"
 
-
+//type 18
+    val nullableList: List<Int?> = listOf(1, 3, null, 7, 9)
+    val intList: List<Int> = nullableList.filterNotNull()
 }
